@@ -20,6 +20,8 @@ required fields:
     minimum length: 10
 - publishedDate:
     should be a valid date
+    
+input data:
 
 ```json
 {

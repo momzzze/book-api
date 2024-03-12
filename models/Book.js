@@ -21,18 +21,18 @@ const bookSchema = new mongoose.Schema({
         type: Date,
         required: true,
     },
-    genre: {
-        type: mongoose.Types.ObjectId,
-        ref: 'Genre',
-    },    
-    author: {
-        type: mongoose.Types.ObjectId,
-        ref: 'Author',
-    },
-    comments: [{
-        type: mongoose.Types.ObjectId,
-        ref: 'Comment',
-    }],
+    // genre: {
+    //     type: mongoose.Types.ObjectId,
+    //     ref: 'Genre',
+    // },    
+    // author: {
+    //     type: mongoose.Types.ObjectId,
+    //     ref: 'Author',
+    // },
+    // comments: [{
+    //     type: mongoose.Types.ObjectId,
+    //     ref: 'Comment',
+    // }],
    
 },
 {
