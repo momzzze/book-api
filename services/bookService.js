@@ -1,4 +1,4 @@
-const Book=require('../models/book');
+const Book=require('../models/Book');
 
 exports.create=(bookData)=>{
     if(!bookData.title){
@@ -13,7 +13,7 @@ exports.create=(bookData)=>{
     if(!bookData.publishedDate){
         throw new Error('Published Date is required');
     }
-    
+
     return Book.create(bookData);
 }
 
