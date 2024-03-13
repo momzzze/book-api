@@ -1,8 +1,39 @@
 # book-api
 backend server:https://book-api-05ci.onrender.com
+
+# Resources
+- Users/Admins
+- Books
+
 ## Endpoints
 
-### GET /books
+### Users
+
+- POST /users/register
+  
+
+#### POST /users/register
+register user
+
+required fields:
+- username unique
+- password
+- rePassword: password matching is implemented on server side
+- email unique
+optional fields:
+- name
+- imageUrl
+- info
+- role: default is 'user'
+     
+
+
+### Books
+- GET /books
+- POST /books
+
+
+#### GET /books
  get all books
  
  returns an array of books
