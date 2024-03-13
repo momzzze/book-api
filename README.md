@@ -1,7 +1,13 @@
-# book-api
-backend server:https://book-api-05ci.onrender.com
+# Book API
 
-# Resources
+This repository contains the backend server for a book API.
+
+## Swagger
+
+You can explore the API documentation using Swagger at [https://book-api-05ci.onrender.com/](https://book-api-05ci.onrender.com/).
+
+## Resources
+
 - Users/Admins
 - Books
 
@@ -9,57 +15,31 @@ backend server:https://book-api-05ci.onrender.com
 
 ### Users
 
-- POST /users/register
-  
-
 #### POST /users/register
-register user
 
-required fields:
-- username unique
-- password
-- rePassword: password matching is implemented on server side
-- email unique
-optional fields:
-- name
-- imageUrl
-- info
-- role: default is 'user'
-     
+Registers a new user.
 
+**Required fields:**
+- `username` (unique)
+- `password`
+- `rePassword` (password matching is implemented on the server side)
+- `email` (unique)
 
-### Books
-- GET /books
-- POST /books
+**Optional fields:**
+- `name`
+- `imageUrl`
+- `info`
+- `role` (default is 'user')
 
-
-#### GET /books
- get all books
- 
- returns an array of books
-
-
-### POST /books
-create book
-
-required fields:
-- title:
-    minimum length: 3    
-- imageUrl:
-    should be a valid url
-- description:
-    minimum length: 10
-- publishedDate:
-    should be a valid date
-
-input data:
-
+#### Example Request Body
 ```json
 {
-    "title": "string",
+    "username": "string",
+    "password": "string",
+    "rePassword": "string",
+    "email": "string",
+    "name": "string",
     "imageUrl": "string",
-    "description": "string",
-    "publishedDate": "date"
+    "info": "string",
+    "role": "string"
 }
-
-```
