@@ -8,6 +8,9 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 require('dotenv').config();
 const uri = process.env.MONGODB_URI;
+const app = express();
+app.use(cors());
+app.use(express.json());
 
 const options = {
     definition: {
@@ -32,16 +35,13 @@ const options = {
 }
 const specs=swaggerJsDoc(options);
 
-const app = express();
-app.use('/', swaggerUI.serve, swaggerUI.setup(specs));
+app.use('/api', swaggerUI.serve, swaggerUI.setup(specs));
 
 app.get('/swagger.json', (req, res) => {
     res.setHeader('Content-Type', 'application/json');
     res.send(specs);
 });
 
-app.use(cors());
-app.use(express.json());
 app.use(router);
 
 app.listen(3000, () => {
