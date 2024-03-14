@@ -2,6 +2,7 @@ const router=require('express').Router();
 
 const bookController=require('./controllers/bookController');
 const userController=require('./controllers/userController');
+const authorController=require('./controllers/authorController');
 
 /**
  * @swagger
@@ -28,6 +29,19 @@ router.use('/books',bookController);
  */
 router.use('/users',userController);
 
+
+/**
+ * @swagger
+ * /authors:
+ *  get:
+ *   summary: Get all authors
+ *  responses:
+ *   200:
+ *   description: A list of authors
+ *  404:
+ *  description: No authors found
+ */
+router.use('/authors',authorController);
 
 
 router.get('*', (req, res) => {
