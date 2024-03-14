@@ -5,6 +5,7 @@ const userController = require('./controllers/userController');
 const authorController = require('./controllers/authorController');
 const genreController = require('./controllers/genreController');
 const publisherController = require('./controllers/publisherController');
+const shipperController = require('./controllers/shipperController');
 
 /**
  * @swagger
@@ -52,6 +53,18 @@ const publisherController = require('./controllers/publisherController');
  *                 format: date
  *                 description: The published date of the book. You can change this to the desired date.
  *                 example: "2022-04-12T00:00:00.000Z"
+ *               price:
+ *                 type: number
+ *                 description: The price of the book. You can change this to the desired price.
+ *                 example: 20
+ *               pages:
+ *                 type: number
+ *                 description: The number of pages in the book. You can change this to the desired number of pages.
+ *                 example: 200
+ *               availableQuantity:
+ *                 type: number
+ *                 description: The available quantity of the book. You can change this to the desired quantity.
+ *                 example: 100
  *     responses:
  *       200:
  *         description: The newly created book.
@@ -87,7 +100,6 @@ const publisherController = require('./controllers/publisherController');
  *                   type: string
  *                   description: Error message.
  */
-
 router.use('/books', bookController);
 
 /**
@@ -188,14 +200,12 @@ router.use('/books', bookController);
  */
 router.use('/users', userController);
 
-
 /**
  * @swagger
  * tags:
  *   name: Authors
  *   description: Operations related to authors
  */
-
 
 /**
  * @swagger
@@ -323,6 +333,50 @@ router.use('/genres', genreController);
  *         description: Publisher creation failed.
  */
 router.use('/publishers', publisherController);
+
+/**
+ * @swagger
+ * tags:
+ *   name: Shippers
+ *   description: Operations related to shippers
+ */
+
+/**
+ * @swagger
+ * /shippers:
+ *   get:
+ *     summary: Get all shippers
+ *     tags: [Shippers]
+ *     responses:
+ *       200:
+ *         description: A list of shippers
+ *       404:
+ *         description: No shippers found
+ *   post:
+ *     summary: Create a new publisher
+ *     tags: [Shippers]
+ *     description: Create a new publisher with the provided data. You can change the name field as needed.
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               name:
+ *                 type: string 
+ *                 example: "Sample Shipper"
+ *               phone:
+ *                 type: string
+ *                 example: "1234567890"
+ *     responses:
+ *       200:
+ *         description: Shipper creation successful.
+ *       400:
+ *         description: Shipper creation failed.
+ */
+router.use('/shippers', shipperController);
+
 
 router.get('*', (req, res) => {
     res.status(404).send('Page not found');
