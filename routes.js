@@ -3,6 +3,7 @@ const router = require('express').Router();
 const bookController = require('./controllers/bookController');
 const userController = require('./controllers/userController');
 const authorController = require('./controllers/authorController');
+const genreController = require('./controllers/genreController');
 
 /**
  * @swagger
@@ -28,8 +29,6 @@ router.use('/books', bookController);
  *         description: No users found
  */
 router.use('/users', userController);
-
-
 /**
  * @swagger
  * /authors:
@@ -73,7 +72,37 @@ router.use('/users', userController);
  *         description: Author creation failed.
  */
 router.use('/authors', authorController);
-
+/**
+ * @swagger
+ * /genres:
+ *   get:
+ *     summary: Get all genres
+ *     responses:
+ *       200:
+ *         description: A list of genres
+ *       404:
+ *         description: No genres found
+ *   post:
+ *     summary: Create a new genre
+ *     description: Create a new genre with the provided data. You can change the name and description fields as needed.
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               name:
+ *                 type: string
+ *                 example: "Sample Genre"
+ *               
+ *     responses:
+ *       200:
+ *         description: Genre creation successful.
+ *       404:
+ *         description: Genre creation failed.
+ */
+router.use('/genres', genreController);
 
 router.get('*', (req, res) => {
     res.status(404).send('Page not found');
