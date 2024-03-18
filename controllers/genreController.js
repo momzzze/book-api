@@ -48,7 +48,6 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
     const genreData = req.body;
-    console.log(genreData);
     try {
         const genre = await genreService.createGenre(genreData);
         res.status(200).json(genre);
