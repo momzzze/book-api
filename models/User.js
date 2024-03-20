@@ -13,6 +13,7 @@ const userSchema = new mongoose.Schema({
     },
     name: {
         type: String,
+        default: 'No name provided'
     },
     username: {
         type: String,
@@ -21,13 +22,16 @@ const userSchema = new mongoose.Schema({
     },
     imageUrl: {
         type: String,
+        default: 'https://cdn.pixabay.com/photo/2017/06/09/23/22/avatar-2388584_1280.png'
     },
     info: {
         type: String,
         trim: true,
+        default: 'No info provided'
     },
     address: {
         type: String,
+        default: 'No address provided'
     },
     role: {
         type: String,
