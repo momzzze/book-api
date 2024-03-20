@@ -13,12 +13,15 @@ exports.register = async (userData) => {
 
     const token = jwt.sign({
         userId: user._id,
+        username: user.username,
         email: user.email,
+        role: user.role,
     }, process.env.JWT_SECRET);
 
     return {
         userId: user._id,
         email: user.email,
+        username: user.username,
         role: user.role,
         token: token,
     }
@@ -44,12 +47,14 @@ exports.login = async (userData) => {
     const token=jwt.sign({
         userId: user._id,
         email: user.email,
+        username: user.username,
         role: user.role,
     }, process.env.JWT_SECRET, { expiresIn: '1d' });
 
     return {
         userId: user._id,
         email: user.email,
+        username: user.username,
         role: user.role,
         token: token,
     }

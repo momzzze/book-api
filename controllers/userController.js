@@ -90,8 +90,8 @@ const userService = require('../services/userService');
 router.post('/register', async (req, res) => {
     const authData = req.body;
     try {
-        const { token, userId, email, role } = await userService.register(authData);
-        res.json({ token, userId, email, role });
+        const { token, userId, username, email, role } = await userService.register(authData);
+        res.json({ token, userId, username, email, role });
     } catch (e) {
         res.status(400).send({ message: e.message });
     }
@@ -161,7 +161,7 @@ router.post('/register', async (req, res) => {
 router.post('/login', async (req, res) => {
     const authData = req.body;
     try {
-        const result= await userService.login(authData);
+        const result = await userService.login(authData);
         res.json(result);
     } catch (e) {
         res.status(400).send({ message: e.message });
