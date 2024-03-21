@@ -100,6 +100,29 @@ const shipperController = require('./controllers/shipperController');
  *                   type: string
  *                   description: Error message.
  */
+
+/**
+ * @swagger
+ * /books/{id}:
+ *   get:
+ *     summary: Get a book by ID
+ *     tags: [Books]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         description: The ID of the book
+ *         schema:
+ *           type: string
+ *     responses:
+ *       200:
+ *         description: The book with the provided ID 
+ *       404:
+ *         description: Book not found
+ *       400:
+ *         description: Bad request. Book retrieval failed.
+ */
+
 router.use('/books', bookController);
 
 

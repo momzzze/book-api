@@ -21,5 +21,14 @@ router.post('/', async (req, res) => {
     }
 });
 
+router.get('/:id', async (req, res) => {
+    const id = req.params.id;
+    try {
+        const book = await bookService.getById(id);
+        res.json(book);
+    } catch (error) {
+        res.status(404).json({ message: error.message });
+    }
+});
 
 module.exports = router;

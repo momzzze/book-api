@@ -17,6 +17,9 @@ exports.create=(bookData)=>{
     return Book.create(bookData);
 }
 
+exports.getById=(id)=>{
+    return Book.findById(id)
+}
 
 exports.getAll=()=>{
     return Book.find();
