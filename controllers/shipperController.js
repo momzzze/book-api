@@ -1,5 +1,5 @@
 const router = require('express').Router();
-
+const shipperService = require('../services/shipperService');
 router.get('/', async (req, res) => {
     try {
         const shippers = await shipperService.getAllShippers();
