@@ -1,5 +1,5 @@
 const router = require('express').Router();
-
+const publisherService = require('../services/publisherService');
 router.get('/', async (req, res) => {
     try {
         const publishers = await publisherService.getAllPublishers();
