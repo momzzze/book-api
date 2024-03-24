@@ -15,5 +15,5 @@ const shipperSchema = new mongoose.Schema({
 });
 
 
-const Shipper = mongoose.model('Author', shipperSchema);
+const Shipper = mongoose.model('Shipper', shipperSchema);
 module.exports = Shipper;
