@@ -31,4 +31,25 @@ router.get('/:id', async (req, res) => {
     }
 });
 
+router.post('/:id', async (req, res) => {
+    const id = req.params.id;
+    const bookData = req.body;
+    try {
+        const book = await bookService.update(id, bookData);
+        res.json(book);
+    } catch (error) {
+        res.status(400).json({ message: error.message });
+    }
+});
+
+router.delete('/:id', async (req, res) => {
+    const id = req.params.id;
+    try {
+        await bookService.delete(id);
+        res.json({ message: 'Book deleted successfully' });
+    } catch (error) {
+        res.status(400).json({ message: error.message });
+    }
+});
+
 module.exports = router;
