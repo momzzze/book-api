@@ -22,5 +22,5 @@ exports.getById=(id)=>{
 }
 
 exports.getAll=()=>{
-    return Book.find();
+    return Book.find().populate('author').populate('genre').populate('publisher');
 }
