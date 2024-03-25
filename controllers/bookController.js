@@ -31,7 +31,7 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-router.post('/:id', async (req, res) => {
+router.post('/edit/:id', async (req, res) => {
     const id = req.params.id;
     const bookData = req.body;
     try {
